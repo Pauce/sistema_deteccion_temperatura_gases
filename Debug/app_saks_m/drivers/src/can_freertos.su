@@ -1,0 +1,8 @@
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\CMSIS/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
+../app_saks_m/drivers/src/can_freertos.c:29:13:mcan_callback	32	static
+../app_saks_m/drivers/src/can_freertos.c:50:20:notify_status	24	static
+../app_saks_m/drivers/src/can_freertos.c:78:10:mcan_rtos_init	48	static
+../app_saks_m/drivers/src/can_freertos.c:170:10:mcan_rtos_deinit	16	static
+../app_saks_m/drivers/src/can_freertos.c:184:10:mcan_rtos_transfer_send	32	static
+../app_saks_m/drivers/src/can_freertos.c:230:10:mcan_rtos_transfer_receive	32	static
+../app_saks_m/drivers/src/can_freertos.c:271:10:mcan_rtos_transfer_send_receive	32	static

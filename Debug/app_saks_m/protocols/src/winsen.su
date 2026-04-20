@@ -1,0 +1,7 @@
+../app_saks_m/protocols/src/winsen.c:25:13:winsen_clear_payload	24	static
+../app_saks_m/protocols/src/winsen.c:32:9:winsen_checksum	24	static
+../app_saks_m/protocols/src/winsen.c:44:17:winsen_validate_frame	24	static
+../app_saks_m/protocols/src/winsen.c:63:17:winsen_parse_frame	32	static
+../app_saks_m/protocols/src/winsen.c:112:6:winsen_build_read_cmd	24	static
+../app_saks_m/protocols/src/winsen.c:125:6:winsen_build_set_qa_mode	32	static
+../app_saks_m/protocols/src/winsen.c:141:6:winsen_build_set_stream_mode	32	static

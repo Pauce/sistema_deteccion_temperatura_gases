@@ -1,0 +1,6 @@
+../app_saks_m/src/ao_app.c:10:6:ao_init	48	static
+../app_saks_m/src/ao_app.c:32:6:ao_send_queue1	16	static
+../app_saks_m/src/ao_app.c:36:6:ao_send_queue2	16	static
+../app_saks_m/src/ao_app.c:40:6:ao_event_read_flag	24	static
+../app_saks_m/src/ao_app.c:44:13:ao_even_get_all	16	static
+../app_saks_m/src/ao_app.c:48:6:ao_event_write_flag	16	static

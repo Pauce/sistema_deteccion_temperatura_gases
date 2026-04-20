@@ -1,0 +1,2 @@
+../app_saks_m/src/process_temperature.c:9:6:hinit_process_temperature	24	static
+../app_saks_m/src/process_temperature.c:16:6:hprocess_temperature	24	static

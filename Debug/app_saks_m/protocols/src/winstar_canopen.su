@@ -1,0 +1,16 @@
+../app_saks_m/protocols/src/winstar_canopen.c:40:24:cob_id_request	16	static
+../app_saks_m/protocols/src/winstar_canopen.c:41:24:sdo_get_index	16	static
+../app_saks_m/protocols/src/winstar_canopen.c:43:17:winstar_init_peripheral	16	static
+../app_saks_m/protocols/src/winstar_canopen.c:51:17:winstar_set_ind_value	32	static
+../app_saks_m/protocols/src/winstar_canopen.c:65:17:winstar_set_text_float	88	static
+../app_saks_m/protocols/src/winstar_canopen.c:83:17:winstar_set_text_string	40	static
+../app_saks_m/protocols/src/winstar_canopen.c:97:17:winstar_set_text_integer	88	static
+../app_saks_m/protocols/src/winstar_canopen.c:114:17:winstar_activation_buzzer	32	static
+../app_saks_m/protocols/src/winstar_canopen.c:130:16:sdo_get_exped_cmd	16	static
+../app_saks_m/protocols/src/winstar_canopen.c:153:24:sdo_expedited_write	296	static
+../app_saks_m/protocols/src/winstar_canopen.c:202:24:sdo_segment_write	304	static
+../app_saks_m/protocols/src/winstar_canopen.c:268:24:sdo_explicit_write	32	static
+../app_saks_m/protocols/src/winstar_canopen.c:297:24:winstar_send_receive_msg	48	static
+../app_saks_m/protocols/src/winstar_canopen.c:318:24:winstar_evaluate_response	16	static
+../app_saks_m/protocols/src/winstar_canopen.c:349:16:convert_to_utf16	32	static
+../app_saks_m/protocols/src/winstar_canopen.c:364:24:winstar_send_to_lcd	40	static

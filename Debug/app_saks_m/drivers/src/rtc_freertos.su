@@ -1,0 +1,25 @@
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\CMSIS/core_cm33.h:2358:22:__NVIC_EnableIRQ	16	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\CMSIS/core_cm33.h:2396:22:__NVIC_DisableIRQ	16	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_clock.h:997:20:CLOCK_DisableClock	24	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common_arm.h:678:24:EnableIRQ	24	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common_arm.h:728:24:DisableIRQ	24	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:81:20:RTC_Deinit	16	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:239:20:RTC_SetSecondsTimerMatch	16	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:277:24:RTC_GetSecondsTimerCount	24	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:442:24:RTC_GetStatusFlags	16	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:454:20:RTC_ClearStatusFlags	24	static
+C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_rtc.h:488:20:RTC_EnableTimer	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:45:6:RTC_IRQHandler	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:66:13:append_two_digit	24	static
+../app_saks_m/drivers/src/rtc_freertos.c:74:13:append_four_digit	24	static
+../app_saks_m/drivers/src/rtc_freertos.c:84:13:format_date	32	static
+../app_saks_m/drivers/src/rtc_freertos.c:98:13:format_time	32	static
+../app_saks_m/drivers/src/rtc_freertos.c:117:10:rtc_rtos_init	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:154:10:rtc_rtos_deinit	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:177:10:rtc_rtos_set_datetime	24	static
+../app_saks_m/drivers/src/rtc_freertos.c:196:10:rtc_rtos_get_datetime	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:215:10:rtc_rtos_arm_alarm_1s	24	static
+../app_saks_m/drivers/src/rtc_freertos.c:235:10:rtc_rtos_wait_alarm	16	static
+../app_saks_m/drivers/src/rtc_freertos.c:251:10:rtc_rtos_update_time	32	static
+../app_saks_m/drivers/src/rtc_freertos.c:283:10:rtc_rtos_update_date	32	static
+../app_saks_m/drivers/src/rtc_freertos.c:313:6:rtc_rtos_format_next_year	40	static

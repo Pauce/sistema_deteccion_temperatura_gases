@@ -1,0 +1,2 @@
+../app_saks_m/protocols/src/wifi_ble_transport.c:34:20:mqtt_transport_init	24	static
+../app_saks_m/protocols/src/wifi_ble_transport.c:49:20:mqtt_transport_transfer	56	static

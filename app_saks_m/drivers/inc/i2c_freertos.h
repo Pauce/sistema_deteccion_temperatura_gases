@@ -22,12 +22,12 @@
  ******************************************************************************/
 /*! @brief I2C FreeRTOS handle */
 typedef struct {
-    I2C_Type *base;                 /*!< I2C base address */
-    i2c_master_handle_t drv_handle; /*!< A handle of the underlying driver, treated as opaque by the RTOS layer */
-    status_t async_status;          /*!< Transactional state of the underlying driver */
-    SemaphoreHandle_t mutex;        /*!< A mutex to lock the handle during a transfer */
-    SemaphoreHandle_t semaphore;    /*!< A semaphore to notify and unblock task when the transfer ends */
-    TickType_t	ticks_to_wait_ms;
+	I2C_Type *base; /*!< I2C base address */
+	i2c_master_handle_t drv_handle; /*!< A handle of the underlying driver, treated as opaque by the RTOS layer */
+	status_t async_status; /*!< Transactional state of the underlying driver */
+	SemaphoreHandle_t mutex; /*!< A mutex to lock the handle during a transfer */
+	SemaphoreHandle_t semaphore; /*!< A semaphore to notify and unblock task when the transfer ends */
+	TickType_t ticks_to_wait_ms;
 } i2c_rtos_handle_t;
 
 typedef struct {
@@ -37,8 +37,6 @@ typedef struct {
 	uint8_t g_master_buff_rx[I2C_DATA_LENGTH];
 	uint8_t g_master_buff_tx[I2C_DATA_LENGTH];
 } i2c_rtos_t;
-
-
 
 #if defined(__cplusplus)
 extern "C" {
@@ -60,9 +58,8 @@ extern "C" {
  * @param srcClock_Hz Frequency of input clock of the I2C module.
  * @return status of the operation.
  */
-status_t i2c_rtos_init(i2c_rtos_handle_t *handle,
-                       I2C_Type *base,
-                       i2c_master_config_t *masterConfig);
+status_t i2c_rtos_init(i2c_rtos_handle_t *handle, I2C_Type *base,
+		i2c_master_config_t *masterConfig);
 
 /*!
  * @brief Deinitializes the I2C.
@@ -82,7 +79,8 @@ status_t i2c_rtos_deinit(i2c_rtos_handle_t *handle);
  * @param transfer Structure specifying the transfer parameters.
  * @return status of the operation.
  */
-status_t i2c_rtos_transfer(i2c_rtos_handle_t *handle, i2c_master_transfer_t *transfer);
+status_t i2c_rtos_transfer(i2c_rtos_handle_t *handle,
+		i2c_master_transfer_t *transfer);
 
 /*!
  * @}

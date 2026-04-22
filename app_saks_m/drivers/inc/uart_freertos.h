@@ -62,10 +62,9 @@ extern "C" {
  * ----------------------------------------------------------------------- */
 
 typedef enum {
-    kUartDrv_Ok              =  0,
-    kUartDrv_ErrParam        = -1,  /**< Parámetro inválido.               */
-    kUartDrv_ErrFull         = -2,  /**< Ring buffer lleno (overflow).      */
-    kUartDrv_ErrEmpty        = -3,  /**< Ring buffer vacío.                 */
+	kUartDrv_Ok = 0, kUartDrv_ErrParam = -1, /**< Parámetro inválido.               */
+	kUartDrv_ErrFull = -2, /**< Ring buffer lleno (overflow).      */
+	kUartDrv_ErrEmpty = -3, /**< Ring buffer vacío.                 */
 } uart_drv_status_t;
 
 /* -------------------------------------------------------------------------
@@ -80,25 +79,25 @@ typedef enum {
  * sin malloc.
  */
 typedef struct {
-    /* Periférico */
-    USART_Type         *base;
+	/* Periférico */
+	USART_Type *base;
 
-    /* Ring buffer */
-    uint8_t             buf[UART_DRV_BUF_SIZE];
-    volatile size_t     head;           /**< Índice de escritura (ISR).    */
-    volatile size_t     tail;           /**< Índice de lectura (tarea).    */
-    volatile size_t     count;          /**< Bytes disponibles para leer.  */
+	/* Ring buffer */
+	uint8_t buf[UART_DRV_BUF_SIZE];
+	volatile size_t head; /**< Índice de escritura (ISR).    */
+	volatile size_t tail; /**< Índice de lectura (tarea).    */
+	volatile size_t count; /**< Bytes disponibles para leer.  */
 
-    /* Notificación FreeRTOS */
-    TaskHandle_t        task;           /**< Tarea a notificar.            */
-    uint32_t            notify_bit;     /**< Bit usado en la notificación. */
-    size_t              threshold;      /**< Bytes mínimos para notificar. */
+	/* Notificación FreeRTOS */
+	TaskHandle_t task; /**< Tarea a notificar.            */
+	uint32_t notify_bit; /**< Bit usado en la notificación. */
+	size_t threshold; /**< Bytes mínimos para notificar. */
 
-    /* Estadísticas */
-    volatile uint32_t   rx_total;
-    volatile uint32_t   rx_overruns;    /**< Bytes perdidos por buf lleno. */
+	/* Estadísticas */
+	volatile uint32_t rx_total;
+	volatile uint32_t rx_overruns; /**< Bytes perdidos por buf lleno. */
 
-    bool                initialized;
+	bool initialized;
 } uart_drv_handle_t;
 
 /* -------------------------------------------------------------------------
@@ -106,19 +105,19 @@ typedef struct {
  * ----------------------------------------------------------------------- */
 
 typedef struct {
-    USART_Type    *base;
-    uint32_t       src_clk_hz;
-    uint32_t       baud_rate;
-    TaskHandle_t   task;
-    /**
-     * Bit a setear en la notificación FreeRTOS.
-     * Usar UART_DRV_NOTIFY_BIT_x. Debe ser único entre todas las instancias
-     * que apunten a la misma tarea.
-     */
-    uint32_t       notify_bit;
-    size_t         threshold;
-    IRQn_Type      irq;
-    uint8_t        irq_prio;    /**< >= configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY */
+	USART_Type *base;
+	uint32_t src_clk_hz;
+	uint32_t baud_rate;
+	TaskHandle_t task;
+	/**
+	 * Bit a setear en la notificación FreeRTOS.
+	 * Usar UART_DRV_NOTIFY_BIT_x. Debe ser único entre todas las instancias
+	 * que apunten a la misma tarea.
+	 */
+	uint32_t notify_bit;
+	size_t threshold;
+	IRQn_Type irq;
+	uint8_t irq_prio; /**< >= configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY */
 } uart_drv_config_t;
 
 /* -------------------------------------------------------------------------
@@ -126,7 +125,7 @@ typedef struct {
  * ----------------------------------------------------------------------- */
 
 uart_drv_status_t uart_drv_init(uart_drv_handle_t *h,
-                                const uart_drv_config_t *config);
+		const uart_drv_config_t *config);
 
 void uart_drv_deinit(uart_drv_handle_t *h);
 
@@ -140,8 +139,8 @@ size_t uart_drv_available(const uart_drv_handle_t *h);
 
 void uart_drv_flush(uart_drv_handle_t *h);
 
-uart_drv_status_t uart_drv_write(uart_drv_handle_t *h,
-                                 const uint8_t *src, size_t len);
+uart_drv_status_t uart_drv_write(uart_drv_handle_t *h, const uint8_t *src,
+		size_t len);
 
 /**
  * @brief ISR compartida. Llamar desde cada USART_IRQHandler:

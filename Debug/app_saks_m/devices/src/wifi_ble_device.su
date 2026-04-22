@@ -1,0 +1,7 @@
+../app_saks_m/devices/src/wifi_ble_device.c:24:23:priv_basic_exchange	88	static
+../app_saks_m/devices/src/wifi_ble_device.c:63:16:wifi_ble_proto_send_data	80	static
+../app_saks_m/devices/src/wifi_ble_device.c:102:16:wifi_ble_proto_get_ntp_date	24	static
+../app_saks_m/devices/src/wifi_ble_device.c:133:16:wifi_ble_proto_get_setpoints	24	static
+../app_saks_m/devices/src/wifi_ble_device.c:162:16:wifi_ble_proto_get_ssid	40	static
+../app_saks_m/devices/src/wifi_ble_device.c:201:16:wifi_ble_proto_get_conn_status	24	static
+../app_saks_m/devices/src/wifi_ble_device.c:231:16:wifi_ble_proto_get_ntp_status	24	static

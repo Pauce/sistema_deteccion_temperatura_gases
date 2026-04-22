@@ -1,8 +1,6 @@
 app_saks_m/app/src/app_saksm.o app_saks_m/app/src/app_saksm.d: \
  ../app_saks_m/app/src/app_saksm.c \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/app_saksm.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/data_structs_type.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\utilities\inc/conversions.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\device/fsl_device_registers.h \
@@ -81,8 +79,6 @@ app_saks_m/app/src/app_saksm.o app_saks_m/app/src/app_saksm.d: \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/list.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/WL0F0007000A8GAAASA00.h
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/app_saksm.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/data_structs_type.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\utilities\inc/conversions.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\device/fsl_device_registers.h:

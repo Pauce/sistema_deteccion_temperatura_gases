@@ -13,7 +13,7 @@ extern "C" {
 #endif
 
 void ze07_init(TaskHandle_t notify_task_handle);
-winsen_data_t * ze07_get_data(uint32_t notif_val);
+winsen_data_t* ze07_get_data(uint32_t notif_val);
 
 #ifdef __cplusplus
 }

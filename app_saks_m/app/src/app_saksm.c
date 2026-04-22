@@ -25,7 +25,7 @@
 #include "WL0F0007000A8GAAASA00.h"
 
 static void init_dummie(void);
-static void task_dummie(void * pvParameters);
+static void task_dummie(void *pvParameters);
 
 #ifdef DUMMIE_TASK_UART
 
@@ -33,18 +33,13 @@ static TaskHandle_t dummie_task_handle;
 
 #endif
 
-
-void init_dummie(void){
+void init_dummie(void) {
 
 #ifndef DUMMIE_TASK_UART
-	BaseType_t res = xTaskCreate(
-						task_dummie,
-						"task_dummie",
-						(configMINIMAL_STACK_SIZE * 2),
-						NULL,
-						(tskIDLE_PRIORITY + 3),
-						NULL
-					);
+	BaseType_t res = xTaskCreate(task_dummie, "task_dummie",
+			(configMINIMAL_STACK_SIZE * 2),
+			NULL, (tskIDLE_PRIORITY + 3),
+			NULL);
 #endif
 #ifdef DUMMIE_TASK_UART
 	BaseType_t res = xTaskCreate(
@@ -63,7 +58,7 @@ void init_dummie(void){
 #endif
 }
 
-static void task_dummie(void * pvParameters){
+static void task_dummie(void *pvParameters) {
 
 #ifdef DUMMIE_TASK_UART
 
@@ -144,10 +139,10 @@ static void task_dummie(void * pvParameters){
 	}
 #endif
 #ifdef DUMMIE_TASK_CAN
-	if(!display_7inch_can_init()){
+	if (!display_7inch_can_init()) {
 		PRINTF("\r\n[task_dummie] Display init error.");
 		vTaskSuspend(NULL);
-	}else{
+	} else {
 		PRINTF("\r\n[task_dummie] Display init ok.");
 	}
 
@@ -155,9 +150,10 @@ static void task_dummie(void * pvParameters){
 	const uint32_t init_value = 0;
 	uint32_t counter = init_value;
 
-	for(;;){
+	for (;;) {
 
-		display_7inch_print(display_7inch_Temp_Value1, DISPLAY_TYPE_VALUE_INTEGER, &counter);
+		display_7inch_print(display_7inch_Temp_Value1,
+				DISPLAY_TYPE_VALUE_INTEGER, &counter);
 		counter++;
 
 		vTaskDelay(pdMS_TO_TICKS(300));
@@ -165,7 +161,7 @@ static void task_dummie(void * pvParameters){
 #endif
 }
 /////////////////////////PRUEBA//////////////////////////////////////
-void app_saks_mod_init(void){
+void app_saks_mod_init(void) {
 	init_dummie();
 	vTaskStartScheduler();
 }

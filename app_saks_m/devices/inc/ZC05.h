@@ -18,7 +18,7 @@ extern "C" {
 #include "winsen.h"
 
 void zc05_init(TaskHandle_t notify_task_handle);
-winsen_data_t * zc05_get_data(uint32_t notif_val);
+winsen_data_t* zc05_get_data(uint32_t notif_val);
 
 #ifdef __cplusplus
 }

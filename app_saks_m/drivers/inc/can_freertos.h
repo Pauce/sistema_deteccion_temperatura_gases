@@ -40,19 +40,24 @@ typedef struct {
 	mcan_rx_fifo_config_t rxFifo0;
 	mcan_tx_buffer_config_t txBuffer;
 
-    volatile status_t async_status_tx;    		/*!< Status of last TX transfer */
-    volatile status_t async_status_rx;    		/*!< Status of last RX transfer */
-    SemaphoreHandle_t mutex;        			/*!< A mutex to lock the handle during a transfer */
-    SemaphoreHandle_t semaphore_tx;    			/*!< Semaphore signaling the end of TX */
-    SemaphoreHandle_t semaphore_rx;    			/*!< Semaphore signaling the end of RX */
-    TickType_t	ticks_to_wait_tick;
+	volatile status_t async_status_tx; /*!< Status of last TX transfer */
+	volatile status_t async_status_rx; /*!< Status of last RX transfer */
+	SemaphoreHandle_t mutex; /*!< A mutex to lock the handle during a transfer */
+	SemaphoreHandle_t semaphore_tx; /*!< Semaphore signaling the end of TX */
+	SemaphoreHandle_t semaphore_rx; /*!< Semaphore signaling the end of RX */
+	TickType_t ticks_to_wait_tick;
 } mcan_rtos_handle_t;
 
-status_t mcan_rtos_init(mcan_rtos_handle_t *can_open, CAN_Type *base, TickType_t delay_ticks);
+status_t mcan_rtos_init(mcan_rtos_handle_t *can_open, CAN_Type *base,
+		TickType_t delay_ticks);
 status_t mcan_rtos_deinit(mcan_rtos_handle_t *can_open);
-status_t mcan_rtos_transfer_send(mcan_rtos_handle_t *can_open, uint8_t *data, size_t len_data, uint32_t id);
-status_t mcan_rtos_transfer_receive(mcan_rtos_handle_t *can_open, uint8_t *data_received, size_t len_data_received);
-status_t mcan_rtos_transfer_send_receive(mcan_rtos_handle_t *can_open, uint8_t *data_send, size_t len_send, uint32_t id, uint8_t *data_recv, size_t len_recv);
+status_t mcan_rtos_transfer_send(mcan_rtos_handle_t *can_open, uint8_t *data,
+		size_t len_data, uint32_t id);
+status_t mcan_rtos_transfer_receive(mcan_rtos_handle_t *can_open,
+		uint8_t *data_received, size_t len_data_received);
+status_t mcan_rtos_transfer_send_receive(mcan_rtos_handle_t *can_open,
+		uint8_t *data_send, size_t len_send, uint32_t id, uint8_t *data_recv,
+		size_t len_recv);
 
 #ifdef __cplusplus
 }

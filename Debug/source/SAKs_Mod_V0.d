@@ -81,9 +81,7 @@ source/SAKs_Mod_V0.o source/SAKs_Mod_V0.d: ../source/SAKs_Mod_V0.c \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacro.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacrocommon.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/mpu_wrappers.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/app_saksm.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/data_structs_type.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\utilities\inc/conversions.h
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/app_saksm.h
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\board/board.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\board/clock_config.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h:
@@ -167,5 +165,3 @@ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SA
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacrocommon.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/mpu_wrappers.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/app_saksm.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/data_structs_type.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\utilities\inc/conversions.h:

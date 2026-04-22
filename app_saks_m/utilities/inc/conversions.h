@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-void float_to_str_1decimal(float value, char* buffer);
-void uint32_to_str(uint32_t value, char* buffer, size_t buf_size);
+void float_to_str_1decimal(float value, char *buffer);
+void uint32_to_str(uint32_t value, char *buffer, size_t buf_size);
 
 #endif /* UTILITIES_INC_CONVERSIONS_H_ */

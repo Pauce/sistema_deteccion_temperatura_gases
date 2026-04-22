@@ -48,7 +48,8 @@ typedef enum {
 } _display_index_7inch;
 
 bool display_7inch_can_init(void);
-void display_7inch_print(_display_index_7inch index, _arg_display_entry type_var, void *var);
+void display_7inch_print(_display_index_7inch index,
+		_arg_display_entry type_var, void *var);
 
 #ifdef __cplusplus
 }

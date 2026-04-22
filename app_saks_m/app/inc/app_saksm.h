@@ -12,10 +12,6 @@
 extern "C" {
 #endif
 
-
-#include "data_structs_type.h"
-#include "conversions.h"
-
 void app_saks_mod_init(void);
 
 #ifdef __cplusplus

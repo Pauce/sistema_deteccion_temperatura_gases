@@ -17,8 +17,10 @@
 #define MSG_RAM_SIZE 				(TX_BUFFER_OFS + 8 + CAN_DATA_SIZE)
 #define NVI_CAN_PRIORITY			2
 
-static void mcan_callback(CAN_Type *base, mcan_handle_t *handle, status_t status, uint32_t result, void *userData);
-static inline void notify_status(mcan_rtos_handle_t *can_open, status_t status, BaseType_t *reschedule);
+static void mcan_callback(CAN_Type *base, mcan_handle_t *handle,
+		status_t status, uint32_t result, void *userData);
+static inline void notify_status(mcan_rtos_handle_t *can_open, status_t status,
+		BaseType_t *reschedule);
 
 /*
  * Single callback invoked from ISR.
@@ -26,13 +28,8 @@ static inline void notify_status(mcan_rtos_handle_t *can_open, status_t status, 
  * the corresponding semaphore. This eliminates ambiguity
  * even if TX and RX fire very close together.
  */
-static void mcan_callback(
-	CAN_Type *base,
-	mcan_handle_t *handle,
-	status_t status,
-	uint32_t result,
-	void *userData
-){
+static void mcan_callback(CAN_Type *base, mcan_handle_t *handle,
+		status_t status, uint32_t result, void *userData) {
 	if (userData == NULL)
 		return;
 
@@ -47,31 +44,28 @@ static void mcan_callback(
 	portYIELD_FROM_ISR(reschedule);
 }
 
-static inline void notify_status(
-	mcan_rtos_handle_t *can_open,
-	status_t status,
-	BaseType_t *reschedule
-){
+static inline void notify_status(mcan_rtos_handle_t *can_open, status_t status,
+		BaseType_t *reschedule) {
 	switch (status) {
-		case kStatus_MCAN_TxIdle:
-		case kStatus_MCAN_TxBusy:
-			can_open->async_status_tx = status;
-			(void) xSemaphoreGiveFromISR(can_open->semaphore_tx, reschedule);
-			break;
-		case kStatus_MCAN_RxFifo0Idle:
-		case kStatus_MCAN_RxFifo0Busy:
-		case kStatus_MCAN_RxFifo0Full:
-			can_open->async_status_rx = status;
-			(void) xSemaphoreGiveFromISR(can_open->semaphore_rx, reschedule);
-			break;
-		case kStatus_MCAN_RxIdle:
-		case kStatus_MCAN_RxBusy:
-			can_open->async_status_rx = status;
-			(void) xSemaphoreGiveFromISR(can_open->semaphore_rx, reschedule);
-			break;
+	case kStatus_MCAN_TxIdle:
+	case kStatus_MCAN_TxBusy:
+		can_open->async_status_tx = status;
+		(void) xSemaphoreGiveFromISR(can_open->semaphore_tx, reschedule);
+		break;
+	case kStatus_MCAN_RxFifo0Idle:
+	case kStatus_MCAN_RxFifo0Busy:
+	case kStatus_MCAN_RxFifo0Full:
+		can_open->async_status_rx = status;
+		(void) xSemaphoreGiveFromISR(can_open->semaphore_rx, reschedule);
+		break;
+	case kStatus_MCAN_RxIdle:
+	case kStatus_MCAN_RxBusy:
+		can_open->async_status_rx = status;
+		(void) xSemaphoreGiveFromISR(can_open->semaphore_rx, reschedule);
+		break;
 
-		default:
-			break;
+	default:
+		break;
 	}
 }
 

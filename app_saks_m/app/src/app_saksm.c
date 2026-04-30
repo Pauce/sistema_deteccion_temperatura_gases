@@ -13,95 +13,22 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-//#define DUMMIE_TASK_UART
-//#define DUMMIE_TASK_MCP
-//#define DUMMIE_TASK_CAN
-
 /////////////////////////PRUEBA//////////////////////////////////////
-//#include "winstar_canopen.h"
 //#include "mcp960x.h"
-//#include "i2c_freertos.h"
-//#include "uart_freertos.h"
-//#include "ZC05.h"
-//#include "ZE07.h"
-//#include "winsen.h"
-//#include "WL0F0007000A8GAAASA00.h"
 
 //static void init_dummie(void);
 //static void task_dummie(void *pvParameters);
 
-//#ifdef DUMMIE_TASK_UART
-//
-//static TaskHandle_t dummie_task_handle;
-//
-//#endif
-//
 //void init_dummie(void) {
-//
-//#ifndef DUMMIE_TASK_UART
 //	BaseType_t res = xTaskCreate(task_dummie, "task_dummie",
 //			(configMINIMAL_STACK_SIZE * 2),
 //			NULL, (tskIDLE_PRIORITY + 3),
 //			NULL);
-//#endif
-//#ifdef DUMMIE_TASK_UART
-//	BaseType_t res = xTaskCreate(
-//						task_dummie,
-//						"task_dummie",
-//						(configMINIMAL_STACK_SIZE + 80),
-//						NULL,
-//						(tskIDLE_PRIORITY + 3),
-//						&dummie_task_handle
-//					);
-//#endif
 //	configASSERT(pdPASS == res);
-//#ifdef DUMMIE_TASK_UART
-//	zc05_init(dummie_task_handle);
-//	ze07_init(dummie_task_handle);
-//#endif
+
 //}
 //
 //static void task_dummie(void *pvParameters) {
-//
-//#ifdef DUMMIE_TASK_UART
-//
-//	(void)pvParameters;
-//
-//	for (;;) {
-//
-//		uint32_t notif_val = 0U;
-//
-//	    xTaskNotifyWait(
-//	            0x00000000U,            /* No limpiar bits a la entrada        */
-//	            UART_DRV_NOTIFY_BIT_0 |
-//	            UART_DRV_NOTIFY_BIT_1,  /* Limpiar ambos bits al salir         */
-//	            &notif_val,
-//	            pdMS_TO_TICKS(500)
-//	    );
-//
-//	    winsen_data_t *zc05 = zc05_get_data(notif_val);
-//
-//        if(zc05 != NULL){
-//   	        PRINTF("Gas type: %d\n\r", zc05->gas_type);
-//   	        PRINTF("Concentration: %d ppm\n\r", zc05->concentration);
-//   	        PRINTF("Full range: %d ppm\n\r", zc05->full_range);
-//   	        PRINTF("Fault: %s\n\r", zc05->fault ? "YES" : "NO");
-//   	        PRINTF("\r\n");
-//        }
-//
-//        winsen_data_t *ze07 = ze07_get_data(notif_val);
-//
-//        if(ze07 != NULL){
-//            PRINTF("Gas type: %d\n\r", ze07->gas_type);
-//            PRINTF("Concentration: %d ppm\n\r", ze07->concentration);
-//            PRINTF("Full range: %d ppm\n\r", ze07->full_range);
-//            PRINTF("Fault: %s\n\r", ze07->fault ? "YES" : "NO");
-//            PRINTF("\r\n");
-//        }
-//	}
-//
-//#endif
-//
 //#ifdef DUMMIE_TASK_MCP
 //	_mcp960x_device device;
 //	i2c_rtos_t channel_i2c;
@@ -139,27 +66,6 @@
 //			PRINTF("%s", msg);
 //		}
 //		vTaskDelay(100);
-//	}
-//#endif
-//#ifdef DUMMIE_TASK_CAN
-//	if (!display_7inch_can_init()) {
-//		PRINTF("\r\n[task_dummie] Display init error.");
-//		vTaskSuspend(NULL);
-//	} else {
-//		PRINTF("\r\n[task_dummie] Display init ok.");
-//	}
-//
-//	vTaskDelay(1000);
-//	const uint32_t init_value = 0;
-//	uint32_t counter = init_value;
-//
-//	for (;;) {
-//
-//		display_7inch_print(display_7inch_Temp_Value1,
-//				DISPLAY_TYPE_VALUE_INTEGER, &counter);
-//		counter++;
-//
-//		vTaskDelay(pdMS_TO_TICKS(300));
 //	}
 //#endif
 //}

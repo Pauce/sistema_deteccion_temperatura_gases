@@ -34,8 +34,8 @@ static void task_extinction(void *args);
 static void task_extinction(void *args) {
 
 	data_sensors_t sensor;
-	gas_fsm_init(&co_sensor, (uint16_t)(100U), TYPE_MONOXIDE);
-	gas_fsm_init(&ch4_sensor, (uint16_t)(100U), TYPE_METHANE);
+	gas_fsm_init(&co_sensor, (uint16_t)(500U), TYPE_MONOXIDE);
+	gas_fsm_init(&ch4_sensor, (uint16_t)(500U), TYPE_METHANE);
 
 	for (;;) {
 		if (xQueueReceive(hqueue_extinction, &sensor, portMAX_DELAY) == pdPASS) {

@@ -16,7 +16,7 @@
 #define WINSTAR_CAN_RECEIVE_SUCCESS 0x60
 #define WINSTAR_CAN_RECEIVE_IND1	0x30
 #define WINSTAR_CAN_RECEIVE_IND2	0x20
-#define MAX_WAIT_CAN_RESP_TICKS		10U
+#define MAX_WAIT_CAN_RESP_TICKS		20U
 
 typedef struct {
 	uint32_t id;
@@ -30,13 +30,13 @@ static uint8_t sdo_get_exped_cmd(uint8_t len);
 static _winstar_status sdo_explicit_write(mcan_rtos_handle_t *can_open,
 		uint8_t node_id, uint16_t _index, uint8_t subindex, const uint8_t data);
 static _winstar_status sdo_expedited_write(mcan_rtos_handle_t *can_open,
-		uint8_t node_id, uint8_t _index, uint8_t subindex, const uint8_t *data,
+		uint8_t node_id, uint16_t _index, uint8_t subindex, const uint8_t *data,
 		uint8_t len);
 static _winstar_status sdo_segment_write(mcan_rtos_handle_t *can_open,
 		uint8_t node_id, uint16_t _index, uint8_t subindex, const uint8_t *text,
 		uint8_t length);
 static _winstar_status winstar_send_receive_msg(mcan_rtos_handle_t *can_open,
-		_canMsg_t *myMsg, uint8_t _index);
+		_canMsg_t *myMsg, uint16_t _index);
 static _winstar_status winstar_evaluate_response(uint8_t *data_received,
 		uint8_t indexIndicator);
 static uint8_t convert_to_utf16(const uint8_t *data, uint8_t *utf16_buffer,
@@ -85,7 +85,7 @@ _winstar_status winstar_set_text_float(mcan_rtos_handle_t *can_open,
 	uint8_t lenString = (uint8_t) (strlen(stringVal));
 
 	if (winstar_send_to_lcd(can_open, stringVal, lenString, textIndicator,
-			TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
+	TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
 		return Winstar_Status_Error;
 
 	return Winstar_Status_Ok;
@@ -97,7 +97,7 @@ _winstar_status winstar_set_text_string(mcan_rtos_handle_t *can_open,
 	uint8_t lenString = (uint8_t) (strlen(info));
 
 	if (winstar_send_to_lcd(can_open, info, lenString, textIndicator,
-			TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
+	TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
 		return Winstar_Status_Error;
 
 	return Winstar_Status_Ok;
@@ -112,7 +112,7 @@ _winstar_status winstar_set_text_integer(mcan_rtos_handle_t *can_open,
 	uint8_t lenString = (uint8_t) (strlen(stringVal));
 
 	if (winstar_send_to_lcd(can_open, stringVal, lenString, textIndicator,
-			TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
+	TEXT_INDICATOR_SUBINX) != Winstar_Status_Ok)
 		return Winstar_Status_Error;
 
 	return Winstar_Status_Ok;
@@ -167,10 +167,8 @@ static uint8_t sdo_get_exped_cmd(uint8_t len) {
  *   len       -> Tamaño (1–4)
  ***************************************************************/
 static _winstar_status sdo_expedited_write(mcan_rtos_handle_t *can_open,
-		uint8_t node_id, uint8_t _index, uint8_t subindex, const uint8_t *data,
+		uint8_t node_id, uint16_t _index, uint8_t subindex, const uint8_t *data,
 		uint8_t len) {
-	if (len > 2)
-		return Winstar_Status_Error;
 
 	_canMsg_t msg;
 	memset(&msg, 0, sizeof(msg));
@@ -179,6 +177,10 @@ static _winstar_status sdo_expedited_write(mcan_rtos_handle_t *can_open,
 
 	uint8_t utf16_data[UTF16_BUFFER_LEN] = { 0 };
 	uint8_t utf16_len = convert_to_utf16(data, utf16_data, len);
+
+	if(utf16_len > 4)
+		return Winstar_Status_Error;
+
 	uint16_t indx = sdo_get_index(_index);
 
 	msg.data[0] = sdo_get_exped_cmd(utf16_len); // Byte de comando según longitud
@@ -292,13 +294,11 @@ static _winstar_status sdo_explicit_write(mcan_rtos_handle_t *can_open,
 //		PRINTF("0x%X ", msg.data[i]);
 //	}
 
-//    if(winstar_send_msg(can_open, &msg) != Winstar_Status_Ok) return Winstar_Status_Error;
-//    PRINTF("\r\n[sdo_explicit_write] Pasó envío.");
 	return winstar_send_receive_msg(can_open, &msg, _index);
 }
 
 static _winstar_status winstar_send_receive_msg(mcan_rtos_handle_t *can_open,
-		_canMsg_t *myMsg, uint8_t _index) {
+		_canMsg_t *myMsg, uint16_t _index) {
 	uint8_t data_recv[CAN_DATA_SIZE] = { 0 };
 
 	status_t status = mcan_rtos_transfer_send_receive(can_open, myMsg->data,
@@ -317,14 +317,17 @@ static _winstar_status winstar_evaluate_response(uint8_t *data_received,
 		return Winstar_Status_Error;
 
 //	PRINTF("\r\nCAN Data : ");
-//	for(uint8_t i = 0; i < CAN_DATA_SIZE; i++){
+//	for (uint8_t i = 0; i < CAN_DATA_SIZE; i++) {
 //		PRINTF("0x%X ", data_received[i]);
 //	}
 //	PRINTF("\r\n");
 
+	uint16_t resp_index = (uint16_t) data_received[1]
+			| ((uint16_t) data_received[2] << 8);
+
 	switch (data_received[0]) {
 	case WINSTAR_CAN_RECEIVE_SUCCESS:
-		if (data_received[1] == indexIndicator) {
+		if (resp_index == sdo_get_index((uint16_t) indexIndicator)) {
 			return Winstar_Status_Ok;
 		}
 		break;
@@ -359,10 +362,11 @@ static _winstar_status winstar_send_to_lcd(mcan_rtos_handle_t *can_open,
 	uint32_t bytes_to_send = (uint32_t) (lenString * 2);
 
 //	PRINTF("\r\n[winstar_send_to_lcd] number_to_lcd: ");
-//	for(uint8_t i = 0; i < lenString; i++){
+//	for (uint8_t i = 0; i < lenString; i++) {
 //		PRINTF("0x%X ", stringVal[i]);
 //	}
-//	PRINTF("\r\n[winstar_send_to_lcd] size: %d (x2): %lu", lenString, bytes_to_send);
+//	PRINTF("\r\n[winstar_send_to_lcd] size: %d (x2): %lu", lenString,
+//			bytes_to_send);
 
 	if (bytes_to_send <= (uint8_t) (SIZE_TO_SWITCH_MODE)) {
 		status = sdo_expedited_write(can_open, DEFAULT_NODE, _index, subindex,

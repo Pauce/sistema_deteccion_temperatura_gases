@@ -1,7 +1,7 @@
 C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\CMSIS/core_cm33.h:2358:22:__NVIC_EnableIRQ	16	static
 C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\CMSIS/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
 C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common_arm.h:678:24:EnableIRQ	24	static
-../app_saks_m/drivers/src/i2c_freertos.c:15:13:i2c_rtos_callback	32	static
-../app_saks_m/drivers/src/i2c_freertos.c:39:10:i2c_rtos_init	40	static
-../app_saks_m/drivers/src/i2c_freertos.c:91:10:i2c_rtos_deinit	16	static
-../app_saks_m/drivers/src/i2c_freertos.c:111:10:i2c_rtos_transfer	96	static
+../app_saks_m/drivers/src/i2c_freertos.c:16:13:i2c_rtos_callback	32	static
+../app_saks_m/drivers/src/i2c_freertos.c:36:10:i2c_rtos_init	40	static
+../app_saks_m/drivers/src/i2c_freertos.c:88:10:i2c_rtos_deinit	16	static
+../app_saks_m/drivers/src/i2c_freertos.c:106:10:i2c_rtos_transfer	96	static

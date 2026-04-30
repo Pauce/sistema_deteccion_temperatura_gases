@@ -4,32 +4,6 @@
 // *  Created on: 21/04/2026
 // *      Author: plibreros
 // */
-//#include "rtc_freertos.h"
-//#include "fsl_rtc.h"
-/*
- * CRTC_freertos.c
- *
- *  Created on: 21/04/2026
- *      Author: plibreros
- *
- *  FreeRTOS-safe RTC driver.
- *
- *  Design notes
- *  ============
- *  1. A FreeRTOS mutex guards every access to the RTC peripheral, preventing
- *     concurrent use by multiple tasks (same pattern as i2c_freertos).
- *
- *  2. The old volatile busyWait flag + polling loop is replaced by a binary
- *     semaphore that is given exclusively from the RTC alarm ISR.  The
- *     waiting task blocks (xSemaphoreTake) instead of spinning, so the CPU
- *     is free to run other tasks between alarms.
- *
- *  3. The module-level static handle pointer (rtc_rtos_active_handle) lets the
- *     ISR reach the semaphore without any global variable exposed to callers.
- *
- *  4. No public API returns void: every function reports success/failure so
- *     the caller can react to mutex timeouts or hardware errors.
- */
 #include "rtc_freertos.h"
 /*******************************************************************************
  * Private – ISR linkage
@@ -47,7 +21,8 @@ void RTC_IRQHandler(void) {
 
 		RTC_ClearStatusFlags(RTC, kRTC_AlarmFlag);
 
-		if (rtc_rtos_active_handle != NULL) {
+		if((rtc_rtos_active_handle != NULL) && (rtc_rtos_active_handle->semaphore != NULL))
+		{
 			BaseType_t higher_task_woken = pdFALSE;
 			(void) xSemaphoreGiveFromISR(rtc_rtos_active_handle->semaphore,
 					&higher_task_woken);
@@ -131,14 +106,16 @@ status_t rtc_rtos_init(rtc_rtos_handle_t *handle, TickType_t ticks_to_wait) {
 		return kStatus_Fail;
 	}
 
+	/* Publish handle so the ISR can reach the semaphore */
+	rtc_rtos_active_handle = handle;
+
 	/* --- Hardware ---------------------------------------------------------- */
 	RTC_Init(RTC);
 	RTC_EnableTimer(RTC, false); /* Must stop counter before writing TSR  */
+	RTC_ClearStatusFlags(RTC, kRTC_AlarmFlag);
+	NVIC_SetPriority(RTC_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY + 1);
 	EnableIRQ(RTC_IRQn);
 	RTC_EnableTimer(RTC, true);
-
-	/* Publish handle so the ISR can reach the semaphore */
-	rtc_rtos_active_handle = handle;
 
 	return kStatus_Success;
 }

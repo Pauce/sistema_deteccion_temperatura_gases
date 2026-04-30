@@ -34,6 +34,7 @@ void zc05_init(TaskHandle_t notify_task_handle) {
 }
 
 winsen_data_t* zc05_get_data(uint32_t notif_val) {
+
 	if (!(notif_val & ZC05_NOTIFY) || (uart_drv_available(&g_uart1) == 0))
 		return NULL;
 

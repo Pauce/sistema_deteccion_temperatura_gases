@@ -24,6 +24,7 @@ RM := rm -rf
 -include board/subdir.mk
 -include app_saks_m/utilities/src/subdir.mk
 -include app_saks_m/protocols/src/subdir.mk
+-include app_saks_m/fsm/src/subdir.mk
 -include app_saks_m/drivers/src/subdir.mk
 -include app_saks_m/devices/src/subdir.mk
 -include app_saks_m/app/src/subdir.mk
@@ -59,7 +60,7 @@ main-build: SAKs_Mod_V0.axf
 SAKs_Mod_V0.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="SAKs_Mod_V0.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T SAKs_Mod_V0_Debug.ld -o "SAKs_Mod_V0.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="SAKs_Mod_V0.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T SAKs_Mod_V0_Debug.ld -u _printf_float -o "SAKs_Mod_V0.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

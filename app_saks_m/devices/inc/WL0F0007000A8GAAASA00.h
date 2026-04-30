@@ -13,6 +13,9 @@ extern "C" {
 #endif
 
 #include <stdbool.h>
+#include <stdint.h>
+
+#define LCD_MAX_PRINT_BUFFER_SIZE	50
 
 typedef enum {
 	DISPLAY_TYPE_VALUE_INDICATOR,
@@ -47,9 +50,19 @@ typedef enum {
 	display_7inch_count_fields
 } _display_index_7inch;
 
+typedef struct {
+	_display_index_7inch _index;
+	_arg_display_entry _typ;
+	union {
+		uint8_t 	u8;
+		uint32_t	u32;
+		float		f;
+		char		str[LCD_MAX_PRINT_BUFFER_SIZE];
+	} value;
+} data_print_lcd_t;
+
 bool display_7inch_can_init(void);
-void display_7inch_print(_display_index_7inch index,
-		_arg_display_entry type_var, void *var);
+void display_7inch_print(data_print_lcd_t * data);
 
 #ifdef __cplusplus
 }

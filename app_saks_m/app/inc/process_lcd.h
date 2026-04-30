@@ -17,12 +17,6 @@ extern "C" {
 #include <string.h>
 #include "WL0F0007000A8GAAASA00.h"
 
-typedef struct {
-	_display_index_7inch _index;
-	_arg_display_entry _typ;
-	void *vaule;
-} data_print_lcd_t;
-
 void ao_process_lcd_init(void);
 bool ao_process_lcd_queue_send(data_print_lcd_t *msg);
 

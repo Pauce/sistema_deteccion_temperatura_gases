@@ -13,14 +13,6 @@
 
 _status_rtc rtc_device_init(rtc_rtos_handle_t *rtc_h,
 		rtc_datetime_t *initial_dt) {
-//	rtc_datetime_t initial_dt = {
-//			.year 	= 2026,
-//			.month	= 4,
-//			.day	= 21,
-//			.hour	= 0,
-//			.minute = 0,
-//			.second	= 0
-//	};
 
 	status_t st = rtc_rtos_init(rtc_h, pdMS_TO_TICKS(RTC_DEVICE_TICKS_MS));
 
@@ -28,6 +20,28 @@ _status_rtc rtc_device_init(rtc_rtos_handle_t *rtc_h,
 		return RTC_Status_Error;
 
 	rtc_rtos_set_datetime(rtc_h, initial_dt);
+
+	return RTC_Status_Ok;
+}
+
+_status_rtc rtc_device_update_date(rtc_rtos_handle_t *rtc_h,
+		char *buff_date, uint8_t *len_date, rtc_datetime_t *dt) {
+
+	if (rtc_rtos_get_datetime(rtc_h, dt) != kStatus_Success)
+		return RTC_Status_Error;
+
+	if (rtc_rtos_update_date(rtc_h, buff_date, len_date, dt)
+			!= kStatus_Success)
+		return RTC_Status_Error;
+
+	return RTC_Status_Ok;
+}
+
+_status_rtc rtc_device_update_time(rtc_rtos_handle_t *rtc_h,
+		char *buff_time, uint8_t *len_time, rtc_datetime_t *dt){
+
+	if(rtc_rtos_update_time(rtc_h, buff_time, len_time, dt) != kStatus_Success)
+		return RTC_Status_Error;
 
 	return RTC_Status_Ok;
 }

@@ -1,6 +1,6 @@
-../app_saks_m/protocols/src/wifi_ble_uart_frame.c:30:9:mqtt_frame_crc8	32	static
-../app_saks_m/protocols/src/wifi_ble_uart_frame.c:53:9:mqtt_frame_stuff	40	static
+../app_saks_m/protocols/src/wifi_ble_uart_frame.c:29:9:mqtt_frame_crc8	32	static
+../app_saks_m/protocols/src/wifi_ble_uart_frame.c:49:9:mqtt_frame_stuff	40	static
 ../app_saks_m/protocols/src/wifi_ble_uart_frame.c:93:20:priv_add_block	24	static
-../app_saks_m/protocols/src/wifi_ble_uart_frame.c:107:9:mqtt_frame_build_basic	96	static
-../app_saks_m/protocols/src/wifi_ble_uart_frame.c:133:9:mqtt_frame_build_send	96	static
-../app_saks_m/protocols/src/wifi_ble_uart_frame.c:165:16:mqtt_frame_parse	32	static
+../app_saks_m/protocols/src/wifi_ble_uart_frame.c:104:9:mqtt_frame_build_basic	96	static
+../app_saks_m/protocols/src/wifi_ble_uart_frame.c:126:9:mqtt_frame_build_send	96	static
+../app_saks_m/protocols/src/wifi_ble_uart_frame.c:153:16:mqtt_frame_parse	32	static

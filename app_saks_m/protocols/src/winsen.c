@@ -2,20 +2,20 @@
  * winsen.c
  *
  *  Created on: 16/04/2026
- *      Author: plibreros
+ *      Author: __plibreros__
  */
 
 /*------------------ Initiative Upload Data Format ------------------------*/
 /*| Byte0 | Byte1 | Byte2 | Byte3 | Byte4 | Byte5 |	Byte6 | Byte7 | Byte8 |*/
 /*-------------------------------------------------------------------------*/
-/*| Start |  Gas  | Unit  |   N°  |Concent|Concent| Full R| Full R| Check |*/
-/*| Byte  | Type  | ppm   |decimal| High  |  Low  | High  |  Low  |  sum  |*/
+/*| Start |  Gas  | Unit  |   N°  |__Concent__|__Concent__| Full R| Full R| Check |*/
+/*| Byte  | Type  | __ppm__   |decimal| High  |  Low  | High  |  Low  |  sum  |*/
 
 /*------------------ Question & Answer Data Format ------------------------*/
 /*| Byte0 | Byte1 | Byte2 | Byte3 | Byte4 | Byte5 |	Byte6 | Byte7 | Byte8 |*/
 /*-------------------------------------------------------------------------*/
-/*| Start |  Gas  |Concent|Concent| Reser | Reser |Concent|Concent| Check |*/
-/*| Byte  | Type  | High  | Low   | ved   | ved   | High  | Low   | sum   |*/
+/*| Start |  Gas  |__Concent__|__Concent__| __Reser__ | __Reser__ |__Concent__|__Concent__| Check |*/
+/*| Byte  | Type  | High  | Low   | __ved__   | __ved__   | High  | Low   | sum   |*/
 
 #include "winsen.h"
 #define WINSEN_LEN_FRAME	9U
@@ -75,8 +75,8 @@ winsen_status_t winsen_parse_frame(winsen_sensor_t type, const uint8_t *frame,
 
 		out->fault = (high & 0x80U) ? true : false;
 
-		uint16_t value = ((high & 0x3FU) << 8) | low;
-		out->concentration = value;
+		out->concentration_raw = (uint16_t)((high & 0x3FU) << 8) | low;
+		out->decimals = frame[3];
 
 		out->full_range = ((uint16_t) frame[6] << 8) | frame[7];
 		out->gas_type = frame[1];
@@ -84,9 +84,21 @@ winsen_status_t winsen_parse_frame(winsen_sensor_t type, const uint8_t *frame,
 		break;
 
 	case WINSEN_SENSOR_ZE07: {
-		uint16_t raw = ((uint16_t) frame[4] << 8) | frame[5];
-
-		out->concentration = raw / 10U;
+		/*
+		 * Byte3: número de decimales que tiene el valor raw (initiative mode).
+		 * El ZE07-CO reporta 0x01 → 1 decimal, por lo que el divisor es 10^1 = 10.
+		 * Se lee del frame en lugar de estar fijo, respetando futuros sensores
+		 * Winsen que puedan indicar una precisión diferente.
+		 *
+		 * Ejemplo datasheet:
+		 *   frame = { 0xFF, 0x04, 0x03, 0x01, 0x00, 0x25, 0x13, 0x88, 0x25 }
+		 *   decimals  = frame[3]        = 1
+		 *   divisor   = 10^1            = 10
+		 *   raw       = (0x00<<8)|0x25  = 37
+		 *   ppm       = 37 / 10         = 3.7 ppm
+		 */
+		out->concentration_raw = ((uint16_t) frame[4] << 8) | frame[5];
+		out->decimals = frame[3];
 		out->full_range = ((uint16_t) frame[6] << 8) | frame[7];
 		out->gas_type = frame[1];
 		out->fault = false;

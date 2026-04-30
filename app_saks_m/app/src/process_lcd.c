@@ -19,10 +19,10 @@
 typedef struct {
 	TaskHandle_t id_lcd_task;
 	char *task_name;
-} _task_lcd_params_t;
+} task_lcd_params_t;
 
 static QueueHandle_t hqueue_lcd = NULL;
-static _task_lcd_params_t id_task;
+static task_lcd_params_t id_task;
 
 /*-------------------------------- PRIVATE PROTOT -------------------------------*/
 static void task_lcd(void *args);
@@ -37,22 +37,22 @@ static void task_lcd(void *args) {
 
 	for (;;) {
 		if (xQueueReceive(hqueue_lcd, &data_print, portMAX_DELAY) == pdPASS) {
-			display_7inch_print(data_print._index, data_print._typ,
-					data_print.vaule);
+			display_7inch_print(&data_print);
 		}
 	}
 }
 
 /*-------------------------------- PUBLIC METHODS -------------------------------*/
 void ao_process_lcd_init(void) {
-	memset(&id_task, 0, sizeof(id_task));
+
+	memset(&id_task, 0, sizeof(task_lcd_params_t));
 	id_task.task_name = (char*) ("task_lcd");
 
 	hqueue_lcd = xQueueCreate(QUEUE_LCD_LENGTH, sizeof(data_print_lcd_t));
 	configASSERT(hqueue_lcd != NULL);
 
 	BaseType_t res = xTaskCreate(task_lcd, id_task.task_name,
-			(configMINIMAL_STACK_SIZE * 2),
+			(configMINIMAL_STACK_SIZE * 3),
 			NULL,
 			LCD_TASK_PRIORITY, &id_task.id_lcd_task);
 

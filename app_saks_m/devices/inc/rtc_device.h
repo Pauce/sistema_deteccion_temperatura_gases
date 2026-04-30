@@ -24,6 +24,12 @@ typedef enum {
 _status_rtc rtc_device_init(rtc_rtos_handle_t *rtc_h,
 		rtc_datetime_t *initial_dt);
 
+_status_rtc rtc_device_update_date(rtc_rtos_handle_t *rtc_h,
+		char *buff_date, uint8_t *len_date, rtc_datetime_t *dt);
+
+_status_rtc rtc_device_update_time(rtc_rtos_handle_t *rtc_h,
+		char *buff_time, uint8_t *len_time, rtc_datetime_t *dt);
+
 #ifdef __cplusplus
 }
 #endif

@@ -6,12 +6,12 @@
  * Generated linker script file for LPC55S16
  * Created from library.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v25.6 [Build 136] [2025-06-27] on 21/04/2026, 4:44:21 p. m.
+ * MCUXpresso IDE v25.6 [Build 136] [2025-06-27] on 30/04/2026, 2:41:07 p. m.
  */
 
 GROUP (
-  "libcr_nohost.a"
-  "libcr_c.a"
-  "libcr_eabihelpers.a"
   "libgcc.a"
+  "libc_nano.a"
+  "libm.a"
+  "libcr_newlib_nohost.a"
 )

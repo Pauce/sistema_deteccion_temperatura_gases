@@ -57,7 +57,9 @@ typedef enum {
 } _burstSamples;
 
 typedef enum {
-	Normal_operation, Shutdown_mode, Burst_mode
+	Normal_operation,
+	Shutdown_mode,
+	Burst_mode
 } _shutDowns;
 
 typedef enum {
@@ -125,7 +127,14 @@ typedef enum {
 	SENSOR067 = 0x67
 } _idSensors;
 
+typedef enum {
+	TAIL_BELL_1,
+	TAIL_BELL_2,
+	TAIL_BELL_3
+} _id_bell_branch;
+
 typedef struct {
+	_id_bell_branch branch;
 	_MCP960xVersion version;
 	_thermoType type;
 	_coldResolutions cold_resolution;

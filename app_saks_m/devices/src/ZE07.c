@@ -4,7 +4,7 @@
  *  Created on: 17/04/2026
  *      Author: plibreros
  */
-#include "ZC05.h"
+#include "ZE07.h"
 #include "FreeRTOS.h"
 
 #define UART2_THRESHOLD		9U
@@ -22,12 +22,16 @@ void FLEXCOMM2_IRQHandler(void) {
 
 void ze07_init(TaskHandle_t notify_task_handle) {
 	uart_drv_status_t status;
-	/* --- Instancia 1: USART1 / FLEXCOMM1 --- */
-	uart_drv_config_t cfg1 = { .base = USART2, .src_clk_hz =
-			CLOCK_GetFlexCommClkFreq(2U), .baud_rate = UART2_BAUD, .task =
-			notify_task_handle, .notify_bit = UART_DRV_NOTIFY_BIT_2,
-			.threshold = UART2_THRESHOLD, .irq = FLEXCOMM2_IRQn, .irq_prio =
-					UART_IRQ_PRIORITY, };
+	/* --- Instancia 2: USART2 / FLEXCOMM2 --- */
+	uart_drv_config_t cfg1 = {
+			.base = USART2,
+			.src_clk_hz = CLOCK_GetFlexCommClkFreq(2U), .baud_rate = UART2_BAUD,
+			.task =	notify_task_handle,
+			.notify_bit = UART_DRV_NOTIFY_BIT_2,
+			.threshold = UART2_THRESHOLD,
+			.irq = FLEXCOMM2_IRQn,
+			.irq_prio =	UART_IRQ_PRIORITY
+	};
 	status = uart_drv_init(&g_uart2, &cfg1);
 	configASSERT(status == kUartDrv_Ok);
 }

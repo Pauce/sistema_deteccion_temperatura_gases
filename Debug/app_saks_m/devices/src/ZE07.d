@@ -1,6 +1,6 @@
 app_saks_m/devices/src/ZE07.o app_saks_m/devices/src/ZE07.d: \
  ../app_saks_m/devices/src/ZE07.c \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/ZC05.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/ZE07.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\device/fsl_device_registers.h \
@@ -80,7 +80,7 @@ app_saks_m/devices/src/ZE07.o app_saks_m/devices/src/ZE07.d: \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\drivers\inc/uart_freertos.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_usart.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\protocols\inc/winsen.h
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/ZC05.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/ZE07.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\device/fsl_device_registers.h:

@@ -1,2 +1,2 @@
 ../app_saks_m/devices/src/WL0F0007000A8GAAASA00.c:16:6:display_7inch_can_init	8	static
-../app_saks_m/devices/src/WL0F0007000A8GAAASA00.c:20:6:display_7inch_print	40	static
+../app_saks_m/devices/src/WL0F0007000A8GAAASA00.c:21:6:display_7inch_print	16	static

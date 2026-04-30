@@ -17,6 +17,7 @@ SUBDIRS := \
 app_saks_m/app/src \
 app_saks_m/devices/src \
 app_saks_m/drivers/src \
+app_saks_m/fsm/src \
 app_saks_m/protocols/src \
 app_saks_m/utilities/src \
 board \

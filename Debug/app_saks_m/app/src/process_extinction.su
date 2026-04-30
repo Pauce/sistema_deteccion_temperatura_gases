@@ -1,2 +1,3 @@
-../app_saks_m/app/src/process_extinction.c:9:6:hinit_process_extinction	24	static
-../app_saks_m/app/src/process_extinction.c:16:6:hprocess_extinction	24	static
+../app_saks_m/app/src/process_extinction.c:34:13:task_extinction	32	static
+../app_saks_m/app/src/process_extinction.c:57:6:ao_process_extinction_init	24	static
+../app_saks_m/app/src/process_extinction.c:72:6:ao_process_extinction_queue_send	16	static

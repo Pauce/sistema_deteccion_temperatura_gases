@@ -62,8 +62,8 @@ app_saks_m/app/src/process_rtc.o app_saks_m/app/src/process_rtc.d: \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common_arm.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_clock.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_reset.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/process_lcd.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/WL0F0007000A8GAAASA00.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/rtc_device.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\drivers\inc/rtc_freertos.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/FreeRTOS.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\template/FreeRTOSConfig.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\template\ARM_CM33_3_priority_bits/FreeRTOSConfig_Gen.h \
@@ -73,13 +73,15 @@ app_saks_m/app/src/process_rtc.o app_saks_m/app/src/process_rtc.d: \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacro.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacrocommon.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/mpu_wrappers.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/portable.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/semphr.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/queue.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/task.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/list.h \
- C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/portable.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/process_lcd.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/WL0F0007000A8GAAASA00.h \
+ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\serial_manager/fsl_component_serial_manager.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\serial_manager/fsl_component_serial_port_uart.h \
  C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\uart/fsl_adapter_uart.h
@@ -145,8 +147,8 @@ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SA
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common_arm.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_clock.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_reset.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/process_lcd.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/WL0F0007000A8GAAASA00.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/rtc_device.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\drivers\inc/rtc_freertos.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/FreeRTOS.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\template/FreeRTOSConfig.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\template\ARM_CM33_3_priority_bits/FreeRTOSConfig_Gen.h:
@@ -156,13 +158,15 @@ C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SA
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacro.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\portable\GCC\ARM_CM33_NTZ\non_secure/portmacrocommon.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/mpu_wrappers.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/portable.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/semphr.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/queue.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/task.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/list.h:
-C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\freertos\freertos-kernel\include/portable.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_common.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\app\inc/process_lcd.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\app_saks_m\devices\inc/WL0F0007000A8GAAASA00.h:
+C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\utilities\debug_console/fsl_debug_console.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\serial_manager/fsl_component_serial_manager.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\serial_manager/fsl_component_serial_port_uart.h:
 C:\Users\plibreros\Documents\Desarrollo\ ASBA\ Proyecto\ N2\Firmware_LPC55S16\SAKs_Mod_V0\component\uart/fsl_adapter_uart.h:

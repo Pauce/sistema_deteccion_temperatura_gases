@@ -29,9 +29,9 @@ int main(void) {
 	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);
 	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
 	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
-//	/* For I2C master */
+	/* For I2C master */
 	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
-//	/* reset FLEXCOMM for I2C */
+	/* reset FLEXCOMM for I2C */
 	RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
 	/*For CAN peripheral*/
 	CLOCK_SetClkDiv(kCLOCK_DivCanClk, 5U, true);

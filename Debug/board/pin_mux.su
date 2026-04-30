@@ -1,11 +1,11 @@
 C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_clock.h:987:20:CLOCK_EnableClock	24	static
 C:\Users\plibreros\Documents\Desarrollo ASBA Proyecto N2\Firmware_LPC55S16\SAKs_Mod_V0\drivers/fsl_iocon.h:182:22:IOCON_PinMuxSet	24	static
-../board/pin_mux.c:38:6:BOARD_InitBootPins	8	static
-../board/pin_mux.c:64:6:BOARD_InitDEBUG_UARTPins	16	static
-../board/pin_mux.c:123:6:BOARD_InitSWD_DEBUGPins	24	static
-../board/pin_mux.c:204:6:BOARD_InitUSBPins	16	static
-../board/pin_mux.c:248:6:BOARD_InitLEDsPins	32	static
-../board/pin_mux.c:347:6:BOARD_InitBUTTONsPins	32	static
-../board/pin_mux.c:460:6:BOARD_InitI2SPins	48	static
-../board/pin_mux.c:627:6:BOARD_InitACCELPins	24	static
-../board/pin_mux.c:699:6:BOARD_InitCANPins	16	static
+../board/pin_mux.c:31:6:BOARD_InitBootPins	8	static
+../board/pin_mux.c:67:6:BOARD_InitDEBUG_UARTPins	16	static
+../board/pin_mux.c:256:6:BOARD_InitSWD_DEBUGPins	24	static
+../board/pin_mux.c:337:6:BOARD_InitUSBPins	16	static
+../board/pin_mux.c:381:6:BOARD_InitLEDsPins	32	static
+../board/pin_mux.c:480:6:BOARD_InitBUTTONsPins	32	static
+../board/pin_mux.c:593:6:BOARD_InitI2SPins	48	static
+../board/pin_mux.c:760:6:BOARD_InitACCELPins	24	static
+../board/pin_mux.c:832:6:BOARD_InitCANPins	16	static

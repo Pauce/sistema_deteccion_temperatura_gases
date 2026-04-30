@@ -15,7 +15,7 @@
 #define RX_FIFO0_OFS 				0x10U
 #define TX_BUFFER_OFS 				0x20U
 #define MSG_RAM_SIZE 				(TX_BUFFER_OFS + 8 + CAN_DATA_SIZE)
-#define NVI_CAN_PRIORITY			2
+#define NVI_CAN_PRIORITY			(configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY + 3)
 
 static void mcan_callback(CAN_Type *base, mcan_handle_t *handle,
 		status_t status, uint32_t result, void *userData);
@@ -151,11 +151,12 @@ status_t mcan_rtos_init(mcan_rtos_handle_t *can_open, CAN_Type *base,
 	MCAN_SetSTDFilterElement(can_open->base, &can_open->rxFilter,
 			&can_open->stdFilter, 0);
 
+	NVIC_SetPriority(CAN0_IRQ0_IRQn, NVI_CAN_PRIORITY);
+	NVIC_SetPriority(CAN0_IRQ1_IRQn, NVI_CAN_PRIORITY);
+
 	MCAN_TransferCreateHandle(can_open->base, &can_open->mcanHandle,
 			mcan_callback, can_open);
 
-	NVIC_SetPriority(CAN0_IRQ0_IRQn, NVI_CAN_PRIORITY);
-	NVIC_SetPriority(CAN0_IRQ1_IRQn, NVI_CAN_PRIORITY);
 	can_open->ticks_to_wait_tick = delay_ticks;
 
 	return kStatus_Success;

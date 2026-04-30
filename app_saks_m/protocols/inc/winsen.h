@@ -17,6 +17,9 @@ extern "C" {
 
 #define WINSEN_FRAME_SIZE   9
 #define WINSEN_START_BYTE   0xFF
+/* Máximo de decimales soportado. 10^4 = 10 000, cubre cualquier valor
+ * que el sensor pueda reportar en byte3 sin desbordar uint32_t.        */
+#define WINSEN_MAX_DECIMALS  4U
 
 /* Sensor types */
 typedef enum {
@@ -25,7 +28,8 @@ typedef enum {
 
 /* Parsed data */
 typedef struct {
-	uint16_t concentration;
+	uint16_t concentration_raw;
+	uint8_t	 decimals;
 	uint16_t full_range;
 	uint8_t gas_type;
 	bool fault;

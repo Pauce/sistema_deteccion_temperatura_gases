@@ -18,36 +18,30 @@ bool display_7inch_can_init(void) {
 			== Winstar_Status_Ok;
 }
 
-void display_7inch_print(_display_index_7inch index_f,
-		_arg_display_entry type_var, void *var) {
-	if (var == NULL)
+void display_7inch_print(data_print_lcd_t * data) {
+	if (data == NULL)
 		return;
 
-	switch (type_var) {
+	switch (data->_typ) {
 	case DISPLAY_TYPE_VALUE_INDICATOR: {
-		uint8_t value = *(uint8_t*) var;
-		(void) winstar_set_ind_value(&can_open, index_f, value);
+		(void) winstar_set_ind_value(&can_open, data->_index, data->value.u8);
 		break;
 	}
 	case DISPLAY_TYPE_VALUE_FLOAT: {
-		float value = *(float*) var;
-		(void) winstar_set_text_float(&can_open, index_f, value);
+		(void) winstar_set_text_float(&can_open, data->_index, data->value.f);
 		break;
 	}
 	case DISPLAY_TYPE_VALUE_STRING: {
-		char *value = (char*) var;
-		(void) winstar_set_text_string(&can_open, index_f, value);
+		(void) winstar_set_text_string(&can_open, data->_index, data->value.str);
 		break;
 	}
 	case DISPLAY_TYPE_VALUE_INTEGER: {
-		uint32_t value = *(uint32_t*) var;
-		(void) winstar_set_text_integer(&can_open, index_f, value);
+		(void) winstar_set_text_integer(&can_open, data->_index, data->value.u32);
 		break;
 	}
 	case DISPLAY_TYPE_VALUE_BUZZER: {
-		uint8_t value = *(uint8_t*) var;
 		(void) winstar_activation_buzzer(&can_open, (uint8_t) BUZZ_REPEAT,
-				value);
+				data->value.u8);
 		break;
 	}
 	default:
